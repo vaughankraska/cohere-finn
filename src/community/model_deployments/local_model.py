@@ -8,7 +8,7 @@ from community.model_deployments import BaseDeployment
 
 
 class LocalModelDeployment(BaseDeployment):
-    def __init__(self, model_path: str, template: str = None):
+    def __init__(self, model_path: str, template: str = None, **kwargs: Any):
         self.prompt_template = PromptTemplate()
         self.model_path = model_path
         self.template = template
@@ -19,7 +19,7 @@ class LocalModelDeployment(BaseDeployment):
 
     @classmethod
     def list_models(cls) -> List[str]:
-        return []
+        return ["TinyLLama"]
 
     @classmethod
     def is_available(cls) -> bool:
@@ -81,7 +81,7 @@ class LocalModelDeployment(BaseDeployment):
     def _get_model(self):
         model = Llama(
             model_path=self.model_path,
-            verbose=False,
+            verbose=True,
         )
 
         return model

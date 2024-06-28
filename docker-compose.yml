@@ -79,6 +79,7 @@ services:
           - node_modules/
 
   terrarium:
+    platform: linux/amd64
     image: ghcr.io/cohere-ai/terrarium:latest
     ports:
       - '8080:8080'

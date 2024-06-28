@@ -69,11 +69,13 @@ ALL_MODEL_DEPLOYMENTS = {
 
 
 def get_available_deployments() -> dict[ModelDeploymentName, Deployment]:
+    logging.warn(f"GAD: community features? {use_community_features}")
     if use_community_features:
         try:
             from community.config.deployments import (
                 AVAILABLE_MODEL_DEPLOYMENTS as COMMUNITY_DEPLOYMENTS_SETUP,
             )
+            logging.warn(f"GAD: community deployments_setup {str(COMMUNITY_DEPLOYMENTS_SETUP)}")
 
             model_deployments = ALL_MODEL_DEPLOYMENTS.copy()
             model_deployments.update(COMMUNITY_DEPLOYMENTS_SETUP)

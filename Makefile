@@ -7,11 +7,11 @@ run-tests:
 run-community-tests:
 	docker compose run --build backend poetry run pytest src/community/tests/$(file)
 attach: 
-	@docker attach cohere-toolkit-backend-1
+	@docker attach cohere-finn-backend-1
 exec-backend:
-	docker exec -ti cohere-toolkit-backend-1 bash 
+	docker exec -ti cohere-finn-backend-1 bash 
 exec-db:
-	docker exec -ti cohere-toolkit-db-1 bash
+	docker exec -ti cohere-finn-db-1 bash
 migration:
 	docker compose run --build backend alembic -c src/backend/alembic.ini revision --autogenerate
 migrate:

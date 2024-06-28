@@ -22,7 +22,7 @@ class ConnectorRetriever(BaseTool):
 
     @classmethod
     def is_available(cls) -> bool:
-        return True
+        return False
 
     def call(self, parameters: dict, **kwargs: Any) -> List[Dict[str, Any]]:
         body = {"query": parameters}

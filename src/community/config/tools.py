@@ -4,7 +4,6 @@ from community.tools import (
     ArxivRetriever,
     Category,
     ClinicalTrials,
-    ConnectorRetriever,
     LlamaIndexUploadPDFRetriever,
     ManagedTool,
     PubMedRetriever,
@@ -14,7 +13,6 @@ from community.tools import (
 
 class CommunityToolName(StrEnum):
     Arxiv = "arxiv"
-    Connector = "example_connector"
     Pub_Med = "pub_med"
     File_Upload_LlamaIndex = "file_reader_llamaindex"
     Wolfram_Alpha = "wolfram_alpha"
@@ -38,16 +36,6 @@ COMMUNITY_TOOLS = {
         error_message="ArxivRetriever is not available.",
         category=Category.DataLoader,
         description="Retrieves documents from Arxiv.",
-    ),
-    CommunityToolName.Connector: ManagedTool(
-        name=CommunityToolName.Connector,
-        display_name="Example Connector",
-        implementation=ConnectorRetriever,
-        is_visible=True,
-        is_available=ConnectorRetriever.is_available(),
-        error_message="ConnectorRetriever is not available.",
-        category=Category.DataLoader,
-        description="Connects to a data source.",
     ),
     CommunityToolName.Pub_Med: ManagedTool(
         name=CommunityToolName.Pub_Med,
